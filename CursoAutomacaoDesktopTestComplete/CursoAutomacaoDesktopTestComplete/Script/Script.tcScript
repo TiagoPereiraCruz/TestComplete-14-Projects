@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Modulos">
+			<child name="App" key="{C93DAB2E-D547-4989-80DC-5004C2224D7B}" path="App.sd" />
+			<child name="Principal" key="{82184F9D-28AC-42D3-A788-D9CBA5EA7DA0}" path="Principal.sd" />
+			<child name="Order" key="{4F578585-C253-4C6D-915D-3D89EACECFDB}" path="Order.sd" />
+		</folder>
+		<folder name="Testes">
+			<child name="OrdersTest" key="{995E1F19-2C12-4C7C-A7FD-0A66849DD158}" path="OrdersTest.sd" />
+		</folder>
+		<folder name="Util">
+			<child name="GeradorDeDados" key="{715ACB56-191D-44FF-B25C-45DAAEBAAB6F}" path="GeradorDeDados.sd" />
+			<child name="Checkpoint" key="{C637A4AF-FCBE-4223-990B-1AC2BB3FA14C}" path="Checkpoint.sd" />
+		</folder>
+	</children>
+</Root>

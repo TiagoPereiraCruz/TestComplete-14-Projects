@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="14.0" key="{7E1C20B2-D90F-4F48-9643-6BB1A15631C4}">
+	<children>
+		<child name="CursoAutomacaoDesktopTestComplete" key="{4E3148BA-D932-41D4-82B6-351A66F29439}" path="CursoAutomacaoDesktopTestComplete\CursoAutomacaoDesktopTestComplete.mds" />
+	</children>
+	<testItems key="{7E5F98E9-4A7C-425B-91CC-0B8BA4B016F1}">
+		<children>
+			<testItem key="{4E3148BA-D932-41D4-82B6-351A66F29439}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{F3F6064F-E2B1-4390-A2E3-A7D613A9485F}">
+		<data Version="3">
+			<Items>
+				<Variable Name="DataAtual" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">
+					<DefValue />
+				</Variable>
+			</Items>
+		</data>
+	</variables>
+	<analysis key="{BC0B1850-E294-42E4-9E62-8C538F297B51}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+	<extender key="{1A3FC97E-9A66-4716-B166-35D10B4146E0}">
+		<CrossBrowserTesting Enable="False" />
+	</extender>
+</Root>

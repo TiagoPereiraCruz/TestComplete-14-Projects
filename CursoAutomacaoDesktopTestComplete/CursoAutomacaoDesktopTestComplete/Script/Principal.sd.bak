@@ -1,0 +1,39 @@
+﻿uses
+  Checkpoint;
+  
+procedure AcessarFormularioNewOrders();
+begin
+  Aliases.Orders.MainForm.MainMenu.Click('Orders|New order...');
+end;
+
+procedure ValidarQuantidadeDeItensNaGrid(pQuantidade : integer);
+begin
+  // Checkpoint do TestComplete
+  // aqObject.CheckProperty(Aliases.Orders.MainForm.OrdersView, 'wItemCount', cmpEqual, pQuantidade);
+  // Checkpoint personalisado
+  Checkpoint.ValidarIgualdade(Aliases.Orders.MainForm.OrdersView.wItemCount,pQuantidade);
+end;
+
+procedure ValidarColunaNome(pNomeEsperado : string);
+var
+  primeiraLinha, colunaNome : integer;
+begin
+  // Documentação
+  primeiraLinha := 0;
+  colunaNome := 0;
+  
+  // Validando os dados
+  Checkpoint.ValidarIgualdade(Aliases.Orders.MainForm.OrdersView.wItem[primeiraLinha, colunaNome], pNomeEsperado)
+end;
+
+procedure ValidarColunaProduto(pProdutoEsperado);
+var
+  primeiraLinha, colunaProduto : integer;
+begin
+  // Documentação
+  primeiraLinha := 0;
+  colunaProduto := 1;
+  
+  // Valiadndo os dados
+  Checkpoint.ValidarIgualdade(Aliases.Orders.MainForm.OrdersView.wItem[primeiraLinha, colunaProduto], pProdutoEsperado)
+end;

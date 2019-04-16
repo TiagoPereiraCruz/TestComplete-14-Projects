@@ -1,0 +1,115 @@
+﻿uses
+  App,
+  Checkpoint,
+  GeradorDeDados,
+  Order,
+  Principal;
+  
+procedure CalcularValorDoDescontoTotalEProduto;
+var
+  Item : integer;
+  ArquivoCSV : OleVariant;
+begin
+  //Abertura da aplicação
+  App.AbrirOrders;
+  
+  // Acesso ao formulário de Orders
+  Principal.AcessarFormularioNewOrders;
+  
+  // Laço de repetição 
+//  for Item := 0 to Project.Variables.DadosDeTeste.RowCount - 1  do
+//  begin
+//    
+//    // Preenchemos o produto e quantidade
+//    Order.EscolherProduto(Project.Variables.DadosDeTeste.Produto[Item]);
+//    Order.DigitarQuantidade(Project.Variables.DadosDeTeste.Quantidade[Item]);
+//  
+//    // Validar os valores contidos nos campos
+//    Order.ValidarPreco(Project.Variables.DadosDeTeste.PrecoEsperado[Item]);
+//    Order.ValidarDesconto(Project.Variables.DadosDeTeste.DescontoEsperado[Item]);
+//    Order.ValidarTotal(Project.Variables.DadosDeTeste.TotalEsperado[Item]);
+//  end;
+  // Fim do laço de repetição
+  
+  // Laço de repetição
+  ArquivoCSV := DDT.CSVDriver('C:\\Temp\\dados_de_teste.csv');
+  while not ArquivoCSV.EOF do
+  
+  begin
+   // Preenchemos o produto e quantidade
+    Order.EscolherProduto(ArquivoCSV.Value['produto']);
+    Order.DigitarQuantidade(ArquivoCSV.Value['quantidade']);
+  
+    // Validar os valores contidos nos campos
+    Order.ValidarPreco(ArquivoCSV.Value['precoesperado']);
+    Order.ValidarDesconto(ArquivoCSV.Value['descontoesperado']);
+    Order.ValidarTotal(ArquivoCSV.Value['totalesperado']);
+    
+    // Indo para a proxima linha
+    ArquivoCSV.Next;
+   end;
+   
+  // Fim do laço
+  
+  // Digitar a data
+  Order.DigitarDataOrder(ProjectSuite.Variables.DataAtual);
+  
+  // Clicar no botão cancelar
+  Order.ClicarCancelar;
+  
+  // Clicar no botão fechar do Orders Delphi
+  App.FecharOrders;
+  
+end;
+
+procedure ValidarPrecoMyMoney;
+begin
+  //Abertura da aplicação
+  App.AbrirOrders;
+  
+  // Acesso ao formulário de Orders
+  Principal.AcessarFormularioNewOrders;
+  
+  // Validar os valores contidos nos campos
+  Order.ValidarProduto('My');  
+  Order.ValidarPreco('$100');
+  
+  // Clicar no botão cancelar
+  Order.ClicarCancelar;
+  
+  // Clicar no botão fechar do Orders Delphi
+  App.FecharOrders;
+  
+end;
+
+procedure ValidarValor();
+begin
+  Checkpoint.ValidarIgualdade('45','45')
+end;
+
+procedure ValidarInsercaoOrderNaGrid();
+begin
+
+  App.AbrirOrders;
+  Principal.AcessarFormularioNewOrders;
+  Order.EscolherProduto('MyMoney');
+  Order.DigitarQuantidade('10');
+  Order.DigitarDataOrder('03/13/2019');
+  Order.DigitarNome('Tiago');
+  Order.DigitarRua('Rua K');
+  Order.DigitarCidade('Salvador');
+  Order.DigitarEstado('Bahia');
+  Order.DigitarCEP('41185425');
+  Order.EscolherCartao('MasterCard');
+  Order.DigitarNumeroCartao('1111 2222 3333 4444');
+  Order.DigitarDataExpiracao('03/13/2020');
+  Order.ClicarOk;
+  
+  Principal.ValidarQuantidadeDeItensNaGrid(1);
+  Principal.ValidarColunaNome('Tiago');
+  Principal.ValidarColunaProduto('MyMoney');
+  Principal.ValidarDadosDaGrid;
+  
+  App.FecharOrders;
+end;
+

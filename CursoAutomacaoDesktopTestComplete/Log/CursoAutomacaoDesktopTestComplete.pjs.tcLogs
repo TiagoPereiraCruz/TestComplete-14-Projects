@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="folders"/>
+		<Node name="logs">
+			<Node name="log idx=0000">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43538.0324418403"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{10737276-ED4E-4086-A51F-4243004D46B2}"/>
+				<Prp name="nameofroot" type="S" value="CursoAutomacaoDesktopTestComplete"/>
+				<Prp name="relpath" type="S" value="14_03_2019_00_46_42_975\Description.tcLog"/>
+				<Prp name="status" type="I" value="0"/>
+			</Node>
+			<Node name="log idx=0001">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43538.0379923727"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{2DEF199D-82BF-4423-9C64-1FEA9199A64E}"/>
+				<Prp name="nameofroot" type="S" value="CursoAutomacaoDesktopTestComplete"/>
+				<Prp name="relpath" type="S" value="14_03_2019_00_54_42_541\Description.tcLog"/>
+				<Prp name="status" type="I" value="0"/>
+			</Node>
+		</Node>
+		<Prp name="signature" type="S" value="{6511DB44-2372-47B8-8349-ADA0DB4D9E14}"/>
+		<Prp name="version" type="S" value="11.0"/>
+	</Node>
+</Nodes>

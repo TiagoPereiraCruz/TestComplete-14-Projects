@@ -1,0 +1,125 @@
+﻿uses
+  Checkpoint;
+procedure EscolherProduto(pProduto : string);
+begin
+  Aliases.Orders.OrderForm.Group.ProductNames.ClickItem(pProduto);
+end;
+
+procedure DigitarQuantidade(pQuantidade : integer);
+begin
+   Aliases.Orders.OrderForm.Group.Quantity.wValue := pQuantidade;
+end;
+
+procedure ValidarPreco(pPreco : string);
+begin
+  aqObject.CheckProperty(Aliases.Orders.OrderForm.Group.Price, 'wText', cmpEqual, pPreco);
+end;
+
+procedure ValidarDesconto(pDesconto : string);
+begin
+  aqObject.CheckProperty(Aliases.Orders.OrderForm.Group.Discount, 'wText', cmpEqual, pDesconto);
+end;
+
+procedure ValidarTotal(pTotal : string);
+begin
+  aqObject.CheckProperty(Aliases.Orders.OrderForm.Group.groupBox1.Total, 'wText', cmpEqual, pTotal);
+end;
+
+procedure DigitarDataOrder(pDataOrder : string);
+begin
+  Aliases.Orders.wndOrder.WindowsForms10Window8app0378734a.Item.Keys(pDataOrder);
+end;
+
+procedure ClicarCancelar();
+begin
+  Aliases.Orders.OrderForm.ButtonCancel.ClickButton;
+end;
+
+procedure ValidarProduto(pProduto : string);
+begin
+  Checkpoint.ValidarSeContem(Aliases.Orders.OrderForm.Group.ProductNames.wText,pProduto)
+end;
+
+procedure DigitarNome(pNome : string);
+begin
+  Aliases.Orders.wndOrder.WindowsForms10Window8app0378734a.Item2.SetText(pNome)
+end;
+
+procedure DigitarRua(pRua : string);
+begin
+  Aliases.Orders.wndOrder.WindowsForms10Window8app0378734a.Item3.SetText(pRua)
+end;
+
+procedure DigitarCidade(pCidade : string);
+begin
+  Aliases.Orders.OrderForm.Group.City.SetText(pCidade);
+end;
+
+procedure DigitarEstado(pEstado : string);
+begin
+  Aliases.Orders.OrderForm.Group.State.SetText(pEstado);
+end;
+
+procedure DigitarCEP(pCEP : string);
+begin
+  Aliases.Orders.OrderForm.Group.Zip.SetText(pCEP);
+end;
+
+procedure EscolherCartao(pCartao);
+begin
+  if pCartao = 'Visa' then
+  Aliases.Orders.OrderForm.Group.Visa.ClickButton;
+
+  if pCartao = 'MasterCard' then
+  Aliases.Orders.OrderForm.Group.MasterCard.ClickButton;
+  
+  if pCartao = 'Amex' then
+  Aliases.Orders.OrderForm.Group.AE.ClickButton;
+end;
+
+procedure DigitarNumeroCartao(pNumeroCartao : string);
+begin
+  Aliases.Orders.OrderForm.Group.CardNo.SetText(pNumeroCartao);
+end;
+
+procedure DigitarDataExpiracao(pDataExpiracao : string);
+begin
+  Aliases.Orders.OrderForm.Group.ExpDate.wDate := (pDataExpiracao);
+end;
+
+procedure ClicarOk();
+begin
+  Aliases.Orders.OrderForm.ButtonOK.ClickButton;
+end;
+
+procedure ValidarQuantidadeDeItensNaGrid(pQuantidade : integer);
+begin
+  // Checkpoint do TestComplete
+  // aqObject.CheckProperty(Aliases.Orders.MainForm.OrdersView, 'wItemCount', cmpEqual, pQuantidade);
+  // Checkpoint personalisado
+  Checkpoint.ValidarIgualdade(Aliases.Orders.MainForm.OrdersView.wItemCount,pQuantidade);
+end;
+
+procedure ValidarColunaNome(pNomeEsperado : string);
+var
+  primeiraLinha, colunaNome : integer;
+begin
+  // Documentação
+  primeiraLinha := 0;
+  colunaNome := 0;
+  
+  // Validando os dados
+  Checkpoint.ValidarIgualdade(Aliases.Orders.MainForm.OrdersView.wItem[primeiraLinha, colunaNome], pNomeEsperado)
+end;
+
+procedure ValidarColunaProduto(pProdutoEsperado);
+var
+  primeiraLinha, colunaProduto : integer;
+begin
+  // Documentação
+  primeiraLinha := 0;
+  colunaProduto := 1;
+  
+  // Valiadndo os dados
+  Checkpoint.ValidarIgualdade(Aliases.Orders.MainForm.OrdersView.wItem[primeiraLinha, colunaProduto], pProdutoEsperado)
+end;
